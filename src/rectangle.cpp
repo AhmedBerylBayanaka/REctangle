@@ -133,3 +133,11 @@ float persegiPanjang::operator[](int index)
             break;
     }
 }
+
+void persegiPanjang::print()
+{
+    cout << "Nilai xmin : " << this->xmin << endl;
+    cout << "Nilai xmax : " << this->xmax << endl;
+    cout << "Nilai ymin : " << this->ymin << endl;
+    cout << "Nilai ymax : " << this->ymax << endl;
+}
