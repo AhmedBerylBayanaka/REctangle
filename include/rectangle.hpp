@@ -17,9 +17,7 @@ class persegiPanjang
         void operator--();
         float operator[](int);
         void print();
-       /* persegiPanjang(int, int); 
-        persegiPanjang operator+(persegiPanjang &);
-        friend ostream& operator<<(ostream &, persegiPanjang &);*/
+      
 };
 
 #endif
