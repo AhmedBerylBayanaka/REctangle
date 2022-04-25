@@ -112,51 +112,24 @@ void persegiPanjang::operator--()
     temp_ymax = MPy + temp_w/2;
 }
 
+
 float persegiPanjang::operator[](int index)
 {
     switch(index){
         case 1 :
-            cout << "xmin adalah : " << this->xmin << endl;
+            return this->xmin;
             break;
 
          case 2 :
-            cout << "xmax adalah : " << this->xmax << endl;
+            return this->xmax;
             break;
 
          case 3:
-             cout << "ymin adalah : " << this->ymin << endl;
+            return this->ymin;
             break;
             
          case 4 :
-            cout << "ymax adalah : " << this->ymax << endl;
+            return this->ymax;
             break;
     }
 }
-/*persegiPanjang::persegiPanjang()
-{
-    panjang = 0;
-    lebar   = 0;
-}
-
-persegiPanjang::persegiPanjang(int p, int l)
-{
-    panjang = p;
-    lebar   = l;
-}
-
-persegiPanjang persegiPanjang::operator+(persegiPanjang &pPl)
-{
-    persegiPanjang temp;
-
-    temp.panjang = this->panjang + pPl.panjang;
-    temp.lebar   = this->lebar + pPl.lebar;
-
-    return temp;
-}
-
-std::ostream& operator<<(std::ostream& out, persegiPanjang& huh)
-{
-    out << "Panjang = " << huh.panjang << endl;
-    out << "Lebar = " << huh.lebar;
-    return out;
-}*/
