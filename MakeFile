@@ -7,3 +7,6 @@ src/%.o: src/%.cpp
 
 rectangle: $(SOURCES:.cpp=.o)
 	$(CXX) $(CXXFLAGS) -o $@ $^
+
+clean:
+	del src\*.o rectangle.exe 
