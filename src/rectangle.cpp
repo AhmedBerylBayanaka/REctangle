@@ -77,15 +77,20 @@ persegiPanjang persegiPanjang::operator-(persegiPanjang const &ora)
 void persegiPanjang::operator++()
 {
     float temp_l, temp_w, MPx, MPy, temp_xmin, temp_xmax, temp_ymin, temp_ymax;
-    temp_l = xmax - xmin;
-    temp_w = ymax - ymin;
+    
+    //nyari panjang dan lebar persegi panjang yang diminta
+    temp_l = this->xmax - this->xmin;
+    temp_w = this->ymax - this->ymin;
 
+    //nyari titik tengah dari persegi panjang tsb
+    MPx = temp_l/2 + this->xmin;
+    MPy = temp_w/2 + this->ymin;
+
+    //kini luasannya menjadi 2x nya
     temp_l *= 2;
     temp_w *= 2;
 
-    MPx = temp_l/2 + xmin;
-    MPy = temp_w/2 + ymin;
-
+    //menentukan titik2 barunya
     temp_xmax = MPx + temp_l/2;
     temp_xmin = MPx - temp_l/2;
 
@@ -96,15 +101,19 @@ void persegiPanjang::operator++()
 void persegiPanjang::operator--()
 {
     float temp_l, temp_w, MPx, MPy, temp_xmin, temp_xmax, temp_ymin, temp_ymax;
-    temp_l = xmax - xmin;
-    temp_w = ymax - ymin;
+    //nyari panjang dan lebar persegi panjang yang diminta
+    temp_l = this->xmax - this->xmin;
+    temp_w = this->ymax - this->ymin;
 
+    //nyari titik tengah dari persegi panjang tsb
+    MPx = temp_l/2 + this->xmin;
+    MPy = temp_w/2 + this->ymin;
+
+    //kini luasannya menjadi 0,5x nya
     temp_l /= 2;
     temp_w /= 2;
 
-    MPx = temp_l/2 + xmin;
-    MPy = temp_w/2 + ymin;
-
+    //menentukan titik2 barunya
     temp_xmax = MPx + temp_l/2;
     temp_xmin = MPx - temp_l/2;
 
