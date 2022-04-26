@@ -23,6 +23,7 @@ bool persegiPanjang::operator==(persegiPanjang const &ora) const // other rectan
     if (this->xmin == this->xmax || this->ymax == this->ymin || ora.xmin == ora.xmax || ora.ymax == ora.ymin) 
         return false;
 
+    //if one rectangle is next to another
     if (this->xmin >= ora.xmax || ora.xmin >= this->xmax)
         return false;
  
@@ -36,7 +37,7 @@ bool persegiPanjang::operator==(persegiPanjang const &ora) const // other rectan
 persegiPanjang persegiPanjang::operator+(persegiPanjang const &ora)
 {
     float MPx, MPy, l, w;
-    if (*this == ora) //biar nunjuk variable nya
+    if (*this == ora) //biar nunjuk nilai dari variable nya
     {
         persegiPanjang temp(0,0,0,0);
 
