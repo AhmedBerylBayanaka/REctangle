@@ -49,13 +49,6 @@ persegiPanjang persegiPanjang::operator+(persegiPanjang const &ora)
         temp.ymin = min(this->ymin, ora.ymin);
         temp.ymax = max(this->ymax, ora.ymax);
 
-        l = abs(temp.xmax - temp.xmin);
-        w = abs(temp.ymax - temp.ymin);
-
-        MPx = temp.xmin + l/2;
-        MPy = temp.ymin + w/2;
-        
-
         return temp;
     }
     else 
@@ -80,12 +73,6 @@ persegiPanjang persegiPanjang::operator-(persegiPanjang const &ora)
         temp.ymin = max(this->ymin, ora.ymin);
         temp.ymax = min(this->ymax, ora.ymax);
 
-        l = abs(temp.xmax - temp.xmin);
-        w = abs(temp.ymax - temp.ymin);
-
-        MPx = temp.xmin + l/2;
-        MPy = temp.ymin + w/2;
-
         return temp;
     }
     else 
@@ -97,7 +84,7 @@ persegiPanjang persegiPanjang::operator-(persegiPanjang const &ora)
 
 void persegiPanjang::operator++()
 {
-    float temp_l, temp_w, MPx, MPy, temp_xmin, temp_xmax, temp_ymin, temp_ymax;
+    float temp_l, temp_w, MPx, MPy;
     
     //nyari panjang dan lebar persegi panjang yang diminta
     temp_l = this->xmax - this->xmin;
@@ -112,16 +99,16 @@ void persegiPanjang::operator++()
     temp_w *= 2;
 
     //menentukan titik2 barunya
-    temp_xmax = MPx + temp_l/2;
-    temp_xmin = MPx - temp_l/2;
+   this->xmax = MPx + temp_l/2;
+    this->xmin = MPx - temp_l/2;
 
-    temp_ymin = MPy - temp_w/2;
-    temp_ymax = MPy + temp_w/2;
+    this->ymin = MPy - temp_w/2;
+    this->ymax = MPy + temp_w/2;
 }
 
 void persegiPanjang::operator++(int)
 {
-    float temp_l, temp_w, MPx, MPy, temp_xmin, temp_xmax, temp_ymin, temp_ymax;
+    float temp_l, temp_w, MPx, MPy;
     
     //nyari panjang dan lebar persegi panjang yang diminta
     temp_l = this->xmax - this->xmin;
@@ -136,16 +123,16 @@ void persegiPanjang::operator++(int)
     temp_w *= 2;
 
     //menentukan titik2 barunya
-    temp_xmax = MPx + temp_l/2;
-    temp_xmin = MPx - temp_l/2;
+    this->xmax = MPx + temp_l/2;
+    this->xmin = MPx - temp_l/2;
 
-    temp_ymin = MPy - temp_w/2;
-    temp_ymax = MPy + temp_w/2;
+    this->ymin = MPy - temp_w/2;
+    this->ymax = MPy + temp_w/2;
 }
 
 void persegiPanjang::operator--()
 {
-    float temp_l, temp_w, MPx, MPy, temp_xmin, temp_xmax, temp_ymin, temp_ymax;
+    float temp_l, temp_w, MPx, MPy;
     //nyari panjang dan lebar persegi panjang yang diminta
     temp_l = this->xmax - this->xmin;
     temp_w = this->ymax - this->ymin;
@@ -159,16 +146,16 @@ void persegiPanjang::operator--()
     temp_w /= 2;
 
     //menentukan titik2 barunya
-    temp_xmax = MPx + temp_l/2;
-    temp_xmin = MPx - temp_l/2;
+    this->xmax = MPx + temp_l/2;
+    this->xmin = MPx - temp_l/2;
 
-    temp_ymin = MPy - temp_w/2;
-    temp_ymax = MPy + temp_w/2;
+    this->ymin = MPy - temp_w/2;
+    this->ymax = MPy + temp_w/2;
 }
 
 void persegiPanjang::operator--(int)
 {
-    float temp_l, temp_w, MPx, MPy, temp_xmin, temp_xmax, temp_ymin, temp_ymax;
+    float temp_l, temp_w, MPx, MPy;
     //nyari panjang dan lebar persegi panjang yang diminta
     temp_l = this->xmax - this->xmin;
     temp_w = this->ymax - this->ymin;
@@ -182,11 +169,11 @@ void persegiPanjang::operator--(int)
     temp_w /= 2;
 
     //menentukan titik2 barunya
-    temp_xmax = MPx + temp_l/2;
-    temp_xmin = MPx - temp_l/2;
+    this->xmax = MPx + temp_l/2;
+    this->xmin = MPx - temp_l/2;
 
-    temp_ymin = MPy - temp_w/2;
-    temp_ymax = MPy + temp_w/2;
+    this->ymin = MPy - temp_w/2;
+    this->ymax = MPy + temp_w/2;
 }
 
 
@@ -214,7 +201,7 @@ float persegiPanjang::operator[](int index)
 
 void persegiPanjang::print()
 {
-    float temp_l, temp_w, MPx, MPy;
+    float temp_l, temp_w, MPx, MPy, area;
     //nyari panjang dan lebar persegi panjang yang diminta
     temp_l = this->xmax - this->xmin;
     temp_w = this->ymax - this->ymin;
@@ -223,6 +210,9 @@ void persegiPanjang::print()
     MPx = temp_l/2 + this->xmin;
     MPy = temp_w/2 + this->ymin;
 
+    //luas persegi panjang
+    area = temp_l*temp_w;
+
     cout << "titik tengah (x) : "  << MPx << endl;
     cout << "titik tengah (y) : "  << MPy<< endl;
     cout << "panjang : " << temp_l<< endl;
@@ -230,5 +220,6 @@ void persegiPanjang::print()
     cout << "Nilai xmin : " << this->xmin << endl;
     cout << "Nilai xmax : " << this->xmax << endl;
     cout << "Nilai ymin : " << this->ymin << endl;
-    cout << "Nilai ymax : " << this->ymax << endl << endl;
+    cout << "Nilai ymax : " << this->ymax << endl;
+    cout << "Luasan persegi panjang : " << area << endl << endl;;
 }
